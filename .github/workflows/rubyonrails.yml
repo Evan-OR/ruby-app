@@ -49,9 +49,7 @@ jobs:
           bundler-cache: true
       - name: install ruby bundle
         working-directory: backend
-        run: |
-          ls -la
-          bundle install
+        run: bundle install
       - name: Generate binstubs
         working-directory: backend
         run: |
