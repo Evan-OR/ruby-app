@@ -22,7 +22,9 @@ jobs:
         with:
           ruby-version: 3.3.2
           bundler-cache: true
-
+      - name: install ruby bundle
+        working-directory: backend
+        run: bundle install
       # Add or replace database setup steps here
       # - name: Ensure Rails scripts are executable
       #   run: chmod +x bin/*
