@@ -31,8 +31,8 @@ jobs:
       - name: Set up database schema
         # run: bin/rails db:schema:load
         run: |
+          ls -la  
           bin/rails db:schema:load
-          ls -la
       # Add or replace test runners here
       - name: Run tests
         run: bin/rake
