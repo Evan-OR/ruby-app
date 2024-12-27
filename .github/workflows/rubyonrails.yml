@@ -64,4 +64,6 @@ jobs:
           bin/brakeman -q -w2
       - name: Lint Ruby files
         working-directory: backend
-        run: bin/rubocop --parallel
+        run: |
+          chmod +x bin/rubocop
+          bin/rubocop --parallel
