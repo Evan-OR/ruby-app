@@ -7,7 +7,7 @@ import { Box, Button, Typography, CircularProgress } from '@mui/material';
 function App() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [modalOpen, setModalOpen] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
   const [eventToEdit, setEventToEdit] = useState(null);
 
   const getData = async () => {

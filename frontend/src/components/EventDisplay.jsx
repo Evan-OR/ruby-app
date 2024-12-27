@@ -44,7 +44,6 @@ const EventDisplay = ({ event: { id, title, date, description, location }, updat
       }}
     >
       <Box display={'flex'} flexDirection={'column'} pt={2} pb={1} px={2}>
-        {id}
         <img
           src={`http://localhost:3000/images/show?file_path=${createImageName(title, description, location)}.jpg`}
         ></img>
