@@ -47,14 +47,16 @@ jobs:
         with:
           ruby-version: 3.3.2
           bundler-cache: true
-      - name: balls
+      - name: install ruby bundle
         working-directory: backend
         run: |
           ls -la
           bundle install
       - name: Generate binstubs
         working-directory: backend
-        run: bundle binstubs bundler-audit brakeman rubocop
+        run: |
+          ls -la
+          bundle binstubs bundler-audit brakeman rubocop
       # Add or replace any other lints here
       - name: Security audit dependencies
         working-directory: backend
