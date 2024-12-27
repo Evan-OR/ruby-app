@@ -52,14 +52,14 @@ jobs:
         run: bundle install
       - name: Generate binstubs
         working-directory: backend
-        run: |
-          ls -la
-          bundle binstubs bundler-audit brakeman rubocop
+        run: bundle binstubs bundler-audit brakeman rubocop
       # Add or replace any other lints here
       - name: Security audit dependencies
         working-directory: backend
         run: bin/bundler-audit --update
-      - name: Security audit application code
+      - name: |
+
+          Security audit application code
         working-directory: backend
         run: bin/brakeman -q -w2
       - name: Lint Ruby files
