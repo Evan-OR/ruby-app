@@ -42,31 +42,21 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Set working directory to backend
-        run: |
-          cd backend
-          ls -la
-      - name: check if commands stack
-        run: ls -la
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@78c01b705fd9d5ad960d432d3a0cfa341d50e410 # v1.179.1
         with:
           ruby-version: 3.3.2
           bundler-cache: true
       - name: Generate binstubs
-        run: |
-          cd backend  
-          bundle binstubs bundler-audit brakeman rubocop
+        working-directory: backend
+        run: bundle binstubs bundler-audit brakeman rubocop
       # Add or replace any other lints here
       - name: Security audit dependencies
-        run: |
-          cd backend
-          bin/bundler-audit --update
+        working-directory: backend
+        run: bin/bundler-audit --update
       - name: Security audit application code
-        run: |
-          cd backend
-          bin/brakeman -q -w2
+        working-directory: backend
+        run: bin/brakeman -q -w2
       - name: Lint Ruby files
-        run: |
-          cd backend
-          bin/rubocop --parallel
+        working-directory: backend
+        run: bin/rubocop --parallel
