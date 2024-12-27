@@ -1,1 +1,98 @@
-AbsolutePath
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Path Traversal",
+      "warning_code": 125,
+      "fingerprint": "06975a92d3f5ec36f04132999419b8c5dee8b3db5f647abde18fc3f7d010994f",
+      "check_name": "Pathname",
+      "message": "Absolute paths in `Pathname#join` cause the entire path to be relative to the absolute path, ignoring any prior values",
+      "file": "app/controllers/images_controller.rb",
+      "line": 20,
+      "link": "https://brakemanscanner.org/docs/warning_types/path_traversal/",
+      "code": "Rails.root.join(\"public\", \"img\", \"#{(params[:customFileName] + \".jpg\")}\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "ImagesController",
+        "method": "create"
+      },
+      "user_input": "(params[:customFileName] + \".jpg\")",
+      "confidence": "High",
+      "cwe_id": [
+        22
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Path Traversal",
+      "warning_code": 125,
+      "fingerprint": "175e1326a3d1c0236b100957c21b09707d6726b0f81bb0e0763d4b52e3f6baf7",
+      "check_name": "Pathname",
+      "message": "Absolute paths in `Pathname#join` cause the entire path to be relative to the absolute path, ignoring any prior values",
+      "file": "app/controllers/images_controller.rb",
+      "line": 12,
+      "link": "https://brakemanscanner.org/docs/warning_types/path_traversal/",
+      "code": "Rails.root.join(\"public\", \"img\", params[:image].original_filename)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "ImagesController",
+        "method": "create"
+      },
+      "user_input": "params[:image].original_filename",
+      "confidence": "High",
+      "cwe_id": [
+        22
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "File Access",
+      "warning_code": 16,
+      "fingerprint": "489b790c7d89283c20819a8b796edbfa26cc75f7c2bdb0163a6dd77d80012825",
+      "check_name": "FileAccess",
+      "message": "Parameter value used in file name",
+      "file": "app/controllers/images_controller.rb",
+      "line": 15,
+      "link": "https://brakemanscanner.org/docs/warning_types/file_access/",
+      "code": "File.open(Rails.root.join(\"public\", \"img\", params[:image].original_filename), \"wb\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "ImagesController",
+        "method": "create"
+      },
+      "user_input": "params[:image].original_filename",
+      "confidence": "Weak",
+      "cwe_id": [
+        22
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "File Access",
+      "warning_code": 16,
+      "fingerprint": "95c16836cefcd124784223f83f31c96b140b1224cd166d67721666f0020e5276",
+      "check_name": "SendFile",
+      "message": "Model attribute used in file name",
+      "file": "app/controllers/images_controller.rb",
+      "line": 36,
+      "link": "https://brakemanscanner.org/docs/warning_types/file_access/",
+      "code": "send_file(Rails.root.join(\"public\", \"img\", Image.find_by(:file_path => params[:file_path]).file_path), :type => \"image/jpeg\", :disposition => \"inline\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "ImagesController",
+        "method": "show"
+      },
+      "user_input": "Image.find_by(:file_path => params[:file_path]).file_path",
+      "confidence": "Weak",
+      "cwe_id": [
+        22
+      ],
+      "note": ""
+    }
+  ],
+  "updated": "2024-12-27 11:51:13 +0000",
+  "brakeman_version": "6.2.2"
+}
