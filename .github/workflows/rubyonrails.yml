@@ -59,9 +59,7 @@ jobs:
         run: bin/bundler-audit --update
       - name: Security audit application code
         working-directory: backend
-        run: |
-          ls -la
-          bin/brakeman -q -w2
+        run: bin/brakeman -q -w2
       - name: Lint Ruby files
         working-directory: backend
         run: bin/rubocop --parallel
