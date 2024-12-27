@@ -31,6 +31,7 @@ jobs:
       - name: Set up database schema
         # run: bin/rails db:schema:load
         run: |
+          chmod +x backend/bin/*
           backend/bin/rails db:schema:load
       # Add or replace test runners here
       - name: Run tests
