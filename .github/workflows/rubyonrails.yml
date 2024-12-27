@@ -31,7 +31,7 @@ jobs:
       - name: Set up database schema
         # run: bin/rails db:schema:load
         run: |
-          working-directory: backend
+          cd: backend
           ls -la  
           bin/rails db:schema:load
       # Add or replace test runners here
