@@ -23,7 +23,7 @@ jobs:
           bundler-cache: true
       # Add or replace database setup steps here
       - name: Ensure Rails scripts are executable
-        run: chmod +x bin/*
+        run: chmod +x backend/bin/*
       - name: Set up database schema
         run: backend/bin/rails db:schema:load
       # Add or replace test runners here
