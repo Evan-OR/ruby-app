@@ -60,7 +60,7 @@ jobs:
       - name: Security audit application code
         working-directory: backend
         run: |
-          chmod u+x bin/rails  
+          chmod +x bin/brakeman  
           bin/brakeman -q -w2
       - name: Lint Ruby files
         working-directory: backend
