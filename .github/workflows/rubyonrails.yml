@@ -23,12 +23,12 @@ jobs:
           bundler-cache: true
       # Add or replace database setup steps here
       - name: Ensure Rails scripts are executable
-        run: chmod +x backend/bin/*
+        run: chmod +x bin/*
       - name: Set up database schema
-        run: backend/bin/rails db:schema:load
+        run: bin/rails db:schema:load
       # Add or replace test runners here
       - name: Run tests
-        run: backend/bin/rake
+        run: bin/rake
 
   lint:
     runs-on: ubuntu-latest
@@ -46,8 +46,8 @@ jobs:
         run: bundle binstubs bundler-audit brakeman rubocop
       # Add or replace any other lints here
       - name: Security audit dependencies
-        run: backend/bin/bundler-audit --update
+        run: bin/bundler-audit --update
       - name: Security audit application code
-        run: backend/bin/brakeman -q -w2
+        run: bin/brakeman -q -w2
       - name: Lint Ruby files
-        run: backend/bin/rubocop --parallel
+        run: bin/rubocop --parallel
