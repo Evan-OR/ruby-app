@@ -27,14 +27,16 @@ jobs:
       # - name: Ensure Rails scripts are executable
       #   run: chmod +x bin/*
       - name: List files for debugging
+        working-directory: backend
         run: ls -la
       - name: Set up database schema
-        # run: bin/rails db:schema:load
+        working-directory: backend
         run: |
           chmod +x backend/bin/*
           backend/bin/rails db:schema:load
       # Add or replace test runners here
       - name: Run tests
+        working-directory: backend
         run: bin/rake
 
   lint:
