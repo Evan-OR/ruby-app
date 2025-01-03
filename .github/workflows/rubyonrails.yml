@@ -25,9 +25,10 @@ jobs:
       - name: install ruby bundle
         working-directory: backend
         run: bundle install
-      # Add or replace database setup steps here
-      # - name: Ensure Rails scripts are executable
-      #   run: chmod +x bin/*
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick graphicsmagick libmagickwand-dev
       - name: List files for debugging
         working-directory: backend
         run: ls -la
