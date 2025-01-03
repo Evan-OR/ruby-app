@@ -40,6 +40,9 @@ jobs:
       - name: Run tests
         working-directory: backend
         run: bin/rake
+      - name: Run system tests
+        working-directory: backend
+        run: bin/rake test:system
 
   lint:
     runs-on: ubuntu-latest
